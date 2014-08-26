@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    console.log("onload event");
+
+    $("#buyconcert_ticket").click(function() {
+	console.log("the button is clicked");
+
+	console.log("starting an ajax call");
+
+        $.ajax({
+		url: "/confirm.php?format=json",
+		dataType: "json"
+	}).success(function(data) {
+		console.log("the data is here %o", data);
+		$("#data").html("There are "+data.items.length +"items in your basket");
+	}).error(function() {
+		console.error("something else other than 200 was returned");
+	});
+    });
+});
+</script>
+</head>
+
+<body>
+<section>
+	<a href='#' id='buyconcert_ticket' class="btn">[Buy Now]</a>
+	<div id="result"></div>
+</section>
+<script type="text/javascript">
+  (function() {
+  var s = document.createElement("script");
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = '//api.usersnap.com/load/'+
+        '35429cdb-17b4-4d2d-83d8-40e5ada54085.js';
+    var x = document.getElementsByTagName('script')[0];
+    x.parentNode.insertBefore(s, x);
+  })();
+</script>
+</body>
+</html>

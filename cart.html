@@ -1,0 +1,89 @@
+<html>
+<head>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css" />
+<style type="text/css">
+.content {
+margin-left: auto;
+margin-right: auto;
+padding-left: 1em;
+padding-right: 1em;
+max-width: 768px;
+}
+a {
+  color: #005399;
+}
+</style>
+<script src="logic.js"></script>
+<script src="cart.js"></script>
+<script src="clicky.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#login').click(function() {
+	    console.log("Logging in user");
+	    login();
+	    });
+
+    $("#cart").click(function() {
+	    console.log("parsing cart");
+	    parseCart();
+	    });
+
+    $('#clicky').click(function() { clicky(); });
+    $('#clicky2').click(function() { clicky2(); });
+    $('#clicky3').click(function() { clicky3(); });
+    $('#clicky4').click(function() { clicky4(); });
+    $('#clicky5').click(function() { clicky5(); });
+    $('#clicky6').click(function() { clicky6(); });
+});
+</script>
+</head>
+
+<body style="margin:0px;">
+<div class="content">
+<h1>Examples for the <a href="https://usersnap.com/?gat=gh" target="_blank">Usersnap</a> <a href="https://usersnap.com/features/console-recorder?gat=gh" target="_blank">Console Recorder</a></h1>
+<h2>1. Setup</h2>
+<p>Sign up for <a href="https://usersnap.com/?gat=gh">Usersnap</a>, create an example and edit this file and copy your project API key.<br>
+<img src="apikey.png"><br>
+Paste the key into the markup of this page. Don't forget to enable the <a href="http://usersnap.com/blog/super-powers-for-web-developers" target="_blank">console recorder feature</a> for this key.</p>
+<pre>
+  var APIKEY = '12345678-9012-3456-7890-1234567890123';
+</pre>
+
+<h2>2. Open up the developer console of your browser</h2>
+<p>You can do this by pressing F12, Ctrl+Shift+J (or Cmd+Shift+J), or via the menu. You probably already know how to do this ;-)</p>
+
+<h2>3. Click on the buttons to raise different kind of console errors</h2>
+<p>Feel free to fire up the debugger to see what's happening here in detail.</p>
+<p>
+<a class="pure-button" id="login">Login</a> - login with object logging and internal server error<br>
+<input id="cartin" placeholder="comma,seperated,values"> <a class="pure-button" id="cart">cart</a> cart parsing<br>
+<a class="pure-button" id="clicky">clicky 1</a> - Accessing a property of an undefined object<br>
+<a class="pure-button" id="clicky2">clicky 2</a> - Calling a method of an undefined object<br>
+<a class="pure-button" id="clicky3">clicky 3</a> - Throwing an execption<br>
+<a class="pure-button" id="clicky4">clicky 4</a> - 404 on XHR<br>
+<a class="pure-button" id="clicky5">clicky 5</a> - Cross-Origin on XHR<br>
+<a class="pure-button" id="clicky6">clicky 6</a> - Parse Error<br>
+</p>
+<h2>4. Click on the Usersnap Feedback button to send a report</h2>
+<p>Open the new report in the <a href="https://usersnap.com/a/" target="_blank">Usersnap Dashboard</a>
+and see all console log messages!</p>
+</div>
+<a href="https://github.com/you"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+
+<script type="text/javascript">
+  var APIKEY = '35429cdb-17b4-4d2d-83d8-40e5ada54085';
+  if(APIKEY == '') {
+      alert("Please copy your Usersnap API key to this example page");
+  }
+  (function() {
+  var s = document.createElement("script");
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = '//api.usersnap.com/load/'+APIKEY+'.js';
+    var x = document.getElementsByTagName('script')[0];
+    x.parentNode.insertBefore(s, x);
+  })();
+</script>
+</body>
+</html>
